@@ -62,18 +62,78 @@
       } else if (target_value == "+" && result.innerHTML.slice(-1) == "+") {
        let answer = result.innerHTML.slice(0,-1);
        result.innerHTML = answer + "+";
+      } else if (target_value == "+" && result.innerHTML.slice(-1) == "-") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "-";
+      } else if (target_value == "+" && result.innerHTML.slice(-1) == "*") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "*";
+      } else if (target_value == "+" && result.innerHTML.slice(-1) == "/") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "/";
+      } else if (target_value == "+" && result.innerHTML.slice(-1) == ".") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + ".";
       } else if (target_value == "-" && result.innerHTML.slice(-1) == "-") {
        let answer = result.innerHTML.slice(0,-1);
        result.innerHTML = answer + "-";
+      } else if (target_value == "-" && result.innerHTML.slice(-1) == "+") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "+";
+      } else if (target_value == "-" && result.innerHTML.slice(-1) == "*") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "*";
+      } else if (target_value == "-" && result.innerHTML.slice(-1) == "/") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "/";
+      } else if (target_value == "-" && result.innerHTML.slice(-1) == ".") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + ".";
       } else if (target_value == "*" && result.innerHTML.slice(-1) == "*") {
        let answer = result.innerHTML.slice(0,-1);
        result.innerHTML = answer + "*";
+      } else if (target_value == "*" && result.innerHTML.slice(-1) == "+") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "+";
+      } else if (target_value == "*" && result.innerHTML.slice(-1) == "-") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "-";
+      } else if (target_value == "*" && result.innerHTML.slice(-1) == "/") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "/";
+      } else if (target_value == "*" && result.innerHTML.slice(-1) == ".") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + ".";
       } else if (target_value == "/" && result.innerHTML.slice(-1) == "/") {
        let answer = result.innerHTML.slice(0,-1);
        result.innerHTML = answer + "/";
+      } else if (target_value == "/" && result.innerHTML.slice(-1) == "+") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "+";
+      } else if (target_value == "/" && result.innerHTML.slice(-1) == "-") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "-";
+      } else if (target_value == "/" && result.innerHTML.slice(-1) == "*") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "*";
+      } else if (target_value == "/" && result.innerHTML.slice(-1) == ".") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + ".";
       } else if (target_value == "." && result.innerHTML.slice(-1) == ".") {
        let answer = result.innerHTML.slice(0,-1);
        result.innerHTML = answer + ".";
+      } else if (target_value == "." && result.innerHTML.slice(-1) == "+") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "+";
+      } else if (target_value == "." && result.innerHTML.slice(-1) == "-") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "-";
+      } else if (target_value == "." && result.innerHTML.slice(-1) == "*") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "*";
+      } else if (target_value == "." && result.innerHTML.slice(-1) == "/") {
+       let answer = result.innerHTML.slice(0,-1);
+       result.innerHTML = answer + "/";
       } else {
          if (result.innerHTML == "0") {
         result.innerHTML = target_value /* 行頭の0不要なので、その時は値を代入する。 */
