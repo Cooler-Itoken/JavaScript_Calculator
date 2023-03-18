@@ -13,7 +13,6 @@
       <tr>
        <td colspan="4" align="right" id="result">0</td>
       </tr>
-      
       <tr>
        <td><button class="button" onclick="clickbutton(this)">7</button></td>
        <td><button class="button" onclick="clickbutton(this)">8</button></td>
@@ -51,122 +50,99 @@
     </table>
     
     <script>
-     let output_sub = document.getElementById('output_sub');//計算結果を表示する場所
-     const output_total = document.getElementById('output_total');//計算過程を表示する場所
-     let total = 0;//計算式を表す変数 
-     let state = 'start';//最初の状態を定義
-     let mode = 'integer_mode'; //最初は整数入力モード
-     //  変数modeに、整数入力中integer_mode、小数入力中decimal_modeを定義します。
-     
-     // 「.」小数点ボタンを押した時
-     const point = document.getElementById('point');
-     point.addEventListener('click', () => {
-      console.log(point.dataset.indexId);
-     
-      // point.dataset.indexId = 小数点でした
-      // トータルに小数点を含まない場合
-      if (!total.toString().includes(point.dataset.indexId)){
-       // トータルに小数点を追記する
-       total += point.dataset.indexId;//(2)「.」を入力
-      }
-
-      console.log(total);
-      output_sub.textContent = total;
-      state = 'calculation'//数字を入力している状態にする。
-      mode = 'decimal_mode'; //小数入力モードに変更
-     }) //click
-     
      function clickbutton(target) {
       let result = document.getElementById("result") /* 意味：id属性で要素を取得します。 */
       let target_value = target.innerHTML;
-      
-      if (target_value == "AC") {
-       result.innerHTML = "0" /* innerHTMLを=の左辺に置くと値を書き換えられる。 */
-      } else if (target_value == "=") {
-       result.innerHTML = eval(result.innerHTML) /* 文字列と数値の融合 */
-      } else if (target_value == "+" && result.innerHTML.slice(-1) == "+") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "+";
-      } else if (target_value == "+" && result.innerHTML.slice(-1) == "-") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "-";
-      } else if (target_value == "+" && result.innerHTML.slice(-1) == "*") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "*";
-      } else if (target_value == "+" && result.innerHTML.slice(-1) == "/") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "/";
-      } else if (target_value == "+" && result.innerHTML.slice(-1) == ".") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + ".";
-      } else if (target_value == "-" && result.innerHTML.slice(-1) == "-") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "-";
-      } else if (target_value == "-" && result.innerHTML.slice(-1) == "+") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "+";
-      } else if (target_value == "-" && result.innerHTML.slice(-1) == "*") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "*";
-      } else if (target_value == "-" && result.innerHTML.slice(-1) == "/") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "/";
-      } else if (target_value == "-" && result.innerHTML.slice(-1) == ".") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + ".";
-      } else if (target_value == "*" && result.innerHTML.slice(-1) == "*") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "*";
-      } else if (target_value == "*" && result.innerHTML.slice(-1) == "+") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "+";
-      } else if (target_value == "*" && result.innerHTML.slice(-1) == "-") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "-";
-      } else if (target_value == "*" && result.innerHTML.slice(-1) == "/") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "/";
-      } else if (target_value == "*" && result.innerHTML.slice(-1) == ".") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + ".";
-      } else if (target_value == "/" && result.innerHTML.slice(-1) == "/") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "/";
-      } else if (target_value == "/" && result.innerHTML.slice(-1) == "+") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "+";
-      } else if (target_value == "/" && result.innerHTML.slice(-1) == "-") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "-";
-      } else if (target_value == "/" && result.innerHTML.slice(-1) == "*") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "*";
-      } else if (target_value == "/" && result.innerHTML.slice(-1) == ".") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + ".";
-      } else if (target_value == "." && result.innerHTML.slice(-1) == ".") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + ".";
-      } else if (target_value == "." && result.innerHTML.slice(-1) == "+") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "+";
-      } else if (target_value == "." && result.innerHTML.slice(-1) == "-") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "-";
-      } else if (target_value == "." && result.innerHTML.slice(-1) == "*") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "*";
-      } else if (target_value == "." && result.innerHTML.slice(-1) == "/") {
-       let answer = result.innerHTML.slice(0,-1);
-       result.innerHTML = answer + "/";
-      } else {
-         if (result.innerHTML == "0") {
-        result.innerHTML = target_value /* 行頭の0不要なので、その時は値を代入する。 */
-       } else {
-        result.innerHTML += target_value
-       }
-      }
-      
+         if (target_value == "AC") {
+             result.innerHTML = "0" /* innerHTMLを=の左辺に置くと値を書き換えられる。 */
+         } else if (target_value == "=") {
+             result.innerHTML = eval(result.innerHTML) /* 文字列と数値の融合 */
+         } else if (target_value == "+" && result.innerHTML.slice(-1) == "+") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "+";
+         } else if (target_value == "+" && result.innerHTML.slice(-1) == "-") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "-";
+         } else if (target_value == "+" && result.innerHTML.slice(-1) == "*") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "*";
+         } else if (target_value == "+" && result.innerHTML.slice(-1) == "/") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "/";
+         } else if (target_value == "-" && result.innerHTML.slice(-1) == "-") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "-";
+         } else if (target_value == "-" && result.innerHTML.slice(-1) == "+") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "+";
+         } else if (target_value == "-" && result.innerHTML.slice(-1) == "*") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "*";
+         } else if (target_value == "-" && result.innerHTML.slice(-1) == "/") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "/";
+         } else if (target_value == "-" && result.innerHTML.slice(-1) == ".") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + ".";
+         } else if (target_value == "*" && result.innerHTML.slice(-1) == "*") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "*";
+         } else if (target_value == "*" && result.innerHTML.slice(-1) == "+") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "+";
+         } else if (target_value == "*" && result.innerHTML.slice(-1) == "-") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "-";
+         } else if (target_value == "*" && result.innerHTML.slice(-1) == "/") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "/";
+         } else if (target_value == "*" && result.innerHTML.slice(-1) == ".") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + ".";
+         } else if (target_value == "/" && result.innerHTML.slice(-1) == "/") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "/";
+         } else if (target_value == "/" && result.innerHTML.slice(-1) == "+") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "+";
+         } else if (target_value == "/" && result.innerHTML.slice(-1) == "-") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "-";
+         } else if (target_value == "/" && result.innerHTML.slice(-1) == "*") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "*";
+         } else if (target_value == "/" && result.innerHTML.slice(-1) == ".") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + ".";
+         } else if (target_value == "." && result.innerHTML.slice(-1) == ".") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + ".";
+         } else if (target_value == "." && result.innerHTML.slice(-1) == "+") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "+";
+         } else if (target_value == "." && result.innerHTML.slice(-1) == "-") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "-";
+         } else if (target_value == "." && result.innerHTML.slice(-1) == "*") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "*";
+         } else if (target_value == "." && result.innerHTML.slice(-1) == "/") {
+             let answer = result.innerHTML.slice(0, -1);
+             result.innerHTML = answer + "/";
+         } else if(target_value == "."){
+            if(!result.innerHTML.toString().includes(".")){
+                result.innerHTML += ".";
+            }
+         }
+         else 
+         {
+             if (result.innerHTML == "0") 
+             {
+                result.innerHTML = target_value /* 行頭の0不要なので、その時は値を代入する。 */
+             } else {
+                 result.innerHTML += target_value
+             }
+         }
      }
      
      
