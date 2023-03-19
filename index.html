@@ -139,6 +139,8 @@
              if (result.innerHTML == "0") 
              {
                 result.innerHTML = target_value /* 行頭の0不要なので、その時は値を代入する。 */
+             }else if (result.innerHTML == "00") {
+                result.innerHTML = target_value /* 行頭の0不要なので、その時は値を代入する。 */
              } else {
                  result.innerHTML += target_value
              }
